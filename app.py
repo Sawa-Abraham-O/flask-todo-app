@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-# Sample data (use a database in production)
+# To add database later 
 tasks = []
 
 @app.route('/')
@@ -28,6 +28,6 @@ def complete_task(task_id):
         if task['id'] == task_id:
             task['completed'] = not task['completed']
     return redirect(url_for('index'))
-
+# delete the below line when hosting with a wsgi server.
 if __name__ == '__main__':
     app.run(debug=True)
